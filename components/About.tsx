@@ -54,7 +54,7 @@ export default function About() {
               I'm Geethanjanreddy, a <span className="text-primary">Junior Frontend Developer</span>
             </h3>
             <p className="text-gray-400 text-lg mb-6 leading-relaxed">
-              Currently pursuing CSE AI & ML at Kalasalingam University, Tamil Nadu. I'm passionate about creating 
+              Graduated with a B.Tech in Computer Science and Engineering (AI & ML) from Kalasalingam University, Tamil Nadu. I'm passionate about creating 
               beautiful, user-friendly web applications that solve real-world problems.
             </p>
             <p className="text-gray-400 text-lg mb-6 leading-relaxed">
