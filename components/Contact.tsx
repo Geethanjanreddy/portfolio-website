@@ -94,7 +94,7 @@ export default function Contact() {
           <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-12 rounded-2xl border border-primary/30">
             <h3 className="text-3xl font-bold mb-4">Let's Work Together!</h3>
             <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-              I'm actively seeking junior developer positions, internships, and freelance opportunities. 
+              I'm actively seeking junior developer positions, Fulltime jobs, Remote work and freelance opportunities. 
               Let's create something amazing together!
             </p>
             <div className="flex flex-wrap justify-center gap-4">
