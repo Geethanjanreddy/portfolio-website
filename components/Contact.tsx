@@ -56,49 +56,49 @@ export default function Contact() {
 
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault()
-  setIsSubmitting(true)
-  setSubmitStatus('idle')
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
 
-  try {
-    const response = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        access_key: '532ef4c2-a744-4a06-9ea5-04dbd99efe52', // Replace with your actual key
-        name: formData.name,
-        email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-        from_name: formData.name,
-        replyto: formData.email,
-      }),
-    })
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '532ef4c2-a744-4a06-9ea5-04dbd99efe52',
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: formData.name,
+          replyto: formData.email,
+        }),
+      })
 
-    const result = await response.json()
+      const result = await response.json()
 
-    if (result.success) {
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
-      
-      setTimeout(() => {
-        setSubmitStatus('idle')
-      }, 5000)
-    } else {
+      if (result.success) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+        
+        setTimeout(() => {
+          setSubmitStatus('idle')
+        }, 5000)
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch (error) {
       setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
     }
-  } catch (error) {
-    setSubmitStatus('error')
-  } finally {
-    setIsSubmitting(false)
   }
-}
 
   return (
-    <section id="contact" ref={ref} className="py-20 bg-dark">
+    <section id="contact" ref={ref} className="py-20 bg-white dark:bg-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div
@@ -107,11 +107,11 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
             Get In <span className="gradient-text">Touch</span>
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
             I'm currently looking for new opportunities. Whether you have a question or just want to say hi, 
             feel free to reach out!
           </p>
@@ -125,21 +125,21 @@ export default function Contact() {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-dark-100 p-6 rounded-xl border border-primary/20 hover:border-primary/50 transition-all duration-300 hover-lift"
+              className="bg-gray-50 dark:bg-dark-100 p-6 rounded-xl border border-gray-200 dark:border-primary/20 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 hover-lift"
             >
               <div className="text-primary mb-4">{info.icon}</div>
-              <h3 className="text-lg font-semibold mb-2">{info.title}</h3>
+              <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">{info.title}</h3>
               {info.link ? (
                 <a
                   href={info.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-primary transition-colors break-all"
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors break-all"
                 >
                   {info.value}
                 </a>
               ) : (
-                <p className="text-gray-400">{info.value}</p>
+                <p className="text-gray-600 dark:text-gray-400">{info.value}</p>
               )}
             </motion.div>
           ))}
@@ -153,16 +153,16 @@ export default function Contact() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <div className="bg-dark-100 p-8 rounded-2xl border border-primary/20">
-              <h3 className="text-2xl font-bold mb-2">Send Me a Message</h3>
-              <p className="text-gray-400 mb-6">
+            <div className="bg-gray-50 dark:bg-dark-100 p-8 rounded-2xl border border-gray-200 dark:border-primary/20">
+              <h3 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Send Me a Message</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6">
                 Fill out the form below and I'll get back to you as soon as possible!
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* Name Input */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Your Name *
                   </label>
                   <input
@@ -172,14 +172,14 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-dark border border-primary/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                    className="w-full px-4 py-3 bg-white dark:bg-dark border border-gray-300 dark:border-primary/20 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
                     placeholder="John Doe"
                   />
                 </div>
 
                 {/* Email Input */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Your Email *
                   </label>
                   <input
@@ -189,14 +189,14 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-dark border border-primary/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                    className="w-full px-4 py-3 bg-white dark:bg-dark border border-gray-300 dark:border-primary/20 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
                     placeholder="john@example.com"
                   />
                 </div>
 
                 {/* Subject Input */}
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Subject *
                   </label>
                   <input
@@ -206,14 +206,14 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-dark border border-primary/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                    className="w-full px-4 py-3 bg-white dark:bg-dark border border-gray-300 dark:border-primary/20 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
                     placeholder="Project Inquiry"
                   />
                 </div>
 
                 {/* Message Textarea */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Your Message *
                   </label>
                   <textarea
@@ -223,7 +223,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-dark border border-primary/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-white dark:bg-dark border border-gray-300 dark:border-primary/20 rounded-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-primary transition-colors resize-none"
                     placeholder="Tell me about your project or inquiry..."
                   />
                 </div>
@@ -236,7 +236,7 @@ export default function Contact() {
                   whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                   className={`w-full px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
                     isSubmitting
-                      ? 'bg-gray-600 cursor-not-allowed'
+                      ? 'bg-gray-400 dark:bg-gray-600 cursor-not-allowed'
                       : 'bg-primary hover:bg-primary-dark'
                   } text-white`}
                 >
@@ -258,7 +258,7 @@ export default function Contact() {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-2 p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400"
+                    className="flex items-center gap-2 p-4 bg-green-500/10 border border-green-500/30 rounded-lg text-green-600 dark:text-green-400"
                   >
                     <Check size={20} />
                     <span>Message sent successfully! I'll get back to you soon.</span>
@@ -269,7 +269,7 @@ export default function Contact() {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400"
+                    className="flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-600 dark:text-red-400"
                   >
                     <AlertCircle size={20} />
                     <span>Oops! Something went wrong. Please try again or email me directly.</span>
@@ -287,8 +287,8 @@ export default function Contact() {
             className="flex flex-col justify-center"
           >
             <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-8 lg:p-12 rounded-2xl border border-primary/30 h-full">
-              <h3 className="text-3xl font-bold mb-4">Let's Work Together!</h3>
-              <p className="text-gray-400 text-lg mb-8">
+              <h3 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Let's Work Together!</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">
                 I'm actively seeking junior developer positions, Full-time jobs, Remote work and freelance opportunities. 
                 Let's create something amazing together!
               </p>
@@ -299,8 +299,8 @@ export default function Contact() {
                     <Check size={16} className="text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Fast Response</h4>
-                    <p className="text-gray-400 text-sm">I typically respond within 24 hours</p>
+                    <h4 className="font-semibold mb-1 text-gray-900 dark:text-white">Fast Response</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">I typically respond within 24 hours</p>
                   </div>
                 </div>
 
@@ -309,8 +309,8 @@ export default function Contact() {
                     <Check size={16} className="text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Open to Opportunities</h4>
-                    <p className="text-gray-400 text-sm">Full-time, part-time, or freelance projects</p>
+                    <h4 className="font-semibold mb-1 text-gray-900 dark:text-white">Open to Opportunities</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Full-time, part-time, or freelance projects</p>
                   </div>
                 </div>
 
@@ -319,8 +319,8 @@ export default function Contact() {
                     <Check size={16} className="text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Collaborative</h4>
-                    <p className="text-gray-400 text-sm">Love working with teams and learning new things</p>
+                    <h4 className="font-semibold mb-1 text-gray-900 dark:text-white">Collaborative</h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Love working with teams and learning new things</p>
                   </div>
                 </div>
               </div>
@@ -341,7 +341,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 border border-white/20"
+                  className="bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 text-gray-900 dark:text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 border-2 border-gray-300 dark:border-white/20"
                 >
                   <Linkedin size={20} />
                   Connect on LinkedIn

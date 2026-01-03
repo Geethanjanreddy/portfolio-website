@@ -13,7 +13,7 @@ export default function Projects() {
     {
       title: 'Productivity Dashboard',
       description: 'A modern task management dashboard with real-time filtering, priority management, and beautiful animations built with Next.js 14, React 18, TypeScript, and Tailwind CSS.',
-      image: '/project-1.jpg', // You'll add actual images later
+      image: '/project-1.jpg',
       tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
       liveLink: 'https://productivity-dashboard-2026.vercel.app',
       githubLink: 'https://github.com/Geethanjanreddy/productivity-dashboard',
@@ -24,8 +24,8 @@ export default function Projects() {
       description: 'A personal portfolio website showcasing my projects, skills, and experience. Built with modern web technologies and responsive design.',
       image: '/project-2.jpg',
       tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-      liveLink: '#',
-      githubLink: '#',
+      liveLink: 'https://portfolio-website-reddy.vercel.app',
+      githubLink: 'https://github.com/Geethanjanreddy/portfolio-website',
       featured: false
     },
     {
@@ -40,7 +40,7 @@ export default function Projects() {
   ]
 
   return (
-    <section id="projects" ref={ref} className="py-20 bg-dark">
+    <section id="projects" ref={ref} className="py-20 bg-white dark:bg-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div
@@ -49,11 +49,11 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
             Here are some of my recent projects that showcase my skills and passion for web development
           </p>
         </motion.div>
@@ -66,11 +66,11 @@ export default function Projects() {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="group relative bg-dark-100 rounded-xl overflow-hidden border border-primary/20 hover:border-primary/50 transition-all duration-300 hover-lift"
+              className="group relative bg-gray-50 dark:bg-dark-100 rounded-xl overflow-hidden border border-gray-200 dark:border-primary/20 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 hover-lift"
             >
               {/* Project Image Placeholder */}
               <div className="h-48 bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-dark/50 group-hover:bg-dark/30 transition-all duration-300"></div>
+                <div className="absolute inset-0 bg-gray-900/50 dark:bg-dark/50 group-hover:bg-gray-900/30 dark:group-hover:bg-dark/30 transition-all duration-300"></div>
                 <span className="text-4xl font-bold text-white/20 group-hover:text-white/40 transition-all duration-300">
                   {project.title.split(' ')[0]}
                 </span>
@@ -83,10 +83,10 @@ export default function Projects() {
 
               {/* Project Info */}
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 mb-4 line-clamp-3">
+                <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
                   {project.description}
                 </p>
 
@@ -110,7 +110,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors"
+                    className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
                   >
                     <ExternalLink size={16} />
                     Live Demo
@@ -121,7 +121,7 @@ export default function Projects() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors"
+                    className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
                   >
                     <Github size={16} />
                     Code

@@ -28,7 +28,7 @@ export default function About() {
   ]
 
   return (
-    <section id="about" ref={ref} className="py-20 bg-dark-100">
+    <section id="about" ref={ref} className="py-20 bg-gray-50 dark:bg-dark-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div
@@ -37,7 +37,7 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
             About <span className="gradient-text">Me</span>
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
@@ -50,18 +50,18 @@ export default function About() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-3xl font-bold mb-6">
+            <h3 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
               I'm Geethanjanreddy, a <span className="text-primary">Junior Frontend Developer</span>
             </h3>
-            <p className="text-gray-400 text-lg mb-6 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 text-lg mb-6 leading-relaxed">
               Graduated with a B.Tech in Computer Science and Engineering (AI & ML) from Kalasalingam University, Tamil Nadu. I'm passionate about creating 
               beautiful, user-friendly web applications that solve real-world problems.
             </p>
-            <p className="text-gray-400 text-lg mb-6 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 text-lg mb-6 leading-relaxed">
               I specialize in React, Next.js, TypeScript, and Tailwind CSS. I love transforming ideas into 
               interactive, responsive websites with clean code and modern design principles.
             </p>
-            <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 leading-relaxed">
               When I'm not coding, I'm learning new technologies, contributing to open source, or working 
               on personal projects to sharpen my skills.
             </p>
@@ -89,13 +89,13 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                className="bg-dark p-6 rounded-xl border border-primary/20 hover:border-primary/50 transition-all duration-300 hover-lift"
+                className="bg-white dark:bg-dark p-6 rounded-xl border border-gray-200 dark:border-primary/20 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 hover-lift"
               >
                 <div className="flex items-start space-x-4">
                   <div className="text-primary">{feature.icon}</div>
                   <div>
-                    <h4 className="text-xl font-semibold mb-2">{feature.title}</h4>
-                    <p className="text-gray-400">{feature.description}</p>
+                    <h4 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{feature.title}</h4>
+                    <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
                   </div>
                 </div>
               </motion.div>

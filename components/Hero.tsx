@@ -5,7 +5,7 @@ import { ChevronDown } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative bg-dark pt-20">
+    <section id="home" className="min-h-screen flex items-center justify-center relative bg-white dark:bg-dark pt-20">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-96 h-96 bg-primary/10 rounded-full blur-3xl -top-48 -left-48"></div>
@@ -19,7 +19,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-lg text-gray-400 mb-4"
+            className="text-lg text-gray-600 dark:text-gray-400 mb-4"
           >
             Hello, my name is
           </motion.p>
@@ -31,7 +31,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6"
           >
-            <span className="text-white">Peram</span>{' '}
+            <span className="text-gray-900 dark:text-white">Peram</span>{' '}
             <span className="gradient-text">Geethanjanreddy</span>
           </motion.h1>
 
@@ -42,7 +42,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-8"
           >
-            <span className="text-gray-300">And I'm a </span>
+            <span className="text-gray-700 dark:text-gray-300">And I'm a </span>
             <span className="text-primary">Junior Frontend Developer</span>
           </motion.div>
 
@@ -51,7 +51,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg text-gray-400 max-w-2xl mx-auto mb-12"
+            className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12"
           >
             Passionate about building beautiful, responsive web applications with React, Next.js, TypeScript, and Tailwind CSS
           </motion.p>
@@ -80,7 +80,7 @@ export default function Hero() {
               href="#about"
               animate={{ y: [0, 10, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
-              className="flex flex-col items-center text-gray-400 hover:text-primary transition-colors"
+              className="flex flex-col items-center text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
             >
               <span className="text-sm mb-2">Scroll Down</span>
               <ChevronDown size={24} />

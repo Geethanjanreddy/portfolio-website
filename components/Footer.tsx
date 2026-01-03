@@ -25,7 +25,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-dark-100 border-t border-primary/20 py-8">
+    <footer className="bg-gray-50 dark:bg-dark-100 border-t border-gray-200 dark:border-primary/20 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Copyright */}
@@ -33,7 +33,7 @@ export default function Footer() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="text-gray-400 text-center md:text-left"
+            className="text-gray-600 dark:text-gray-400 text-center md:text-left"
           >
             © {currentYear} Peram Geethanjanreddy. Made with{' '}
             <Heart className="inline w-4 h-4 text-primary fill-primary" /> and lots of ☕
@@ -54,7 +54,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-10 h-10 flex items-center justify-center rounded-lg bg-dark border border-primary/20 hover:border-primary/50 text-gray-400 hover:text-primary transition-all duration-300"
+                className="w-10 h-10 flex items-center justify-center rounded-lg bg-white dark:bg-dark border border-gray-200 dark:border-primary/20 hover:border-primary/50 dark:hover:border-primary/50 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-300"
                 aria-label={link.label}
               >
                 {link.icon}
@@ -67,7 +67,7 @@ export default function Footer() {
             href="#home"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="text-gray-400 hover:text-primary transition-colors font-medium"
+            className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors font-medium"
           >
             Back to Top ↑
           </motion.a>
